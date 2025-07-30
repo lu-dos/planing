@@ -12,11 +12,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   });
 
-  // progress bar
-  const bar=document.getElementById('period-progress');
-  const pct=Math.min(100,Math.max(0,(Date.now()-new Date('2025-07-21'))/(new Date('2025-08-17')-new Date('2025-07-21'))*100));
-  bar.style.setProperty('--pct',pct);
-  bar.title=`Progression : ${pct.toFixed(0)}%`;
+  // navigation vers les semaines
+  const weekSelect=document.getElementById('weekSelect');
+  if(weekSelect){
+    weekSelect.addEventListener('change',()=>{
+      const target=document.querySelector(weekSelect.value);
+      if(target) target.scrollIntoView({behavior:'smooth'});
+    });
+  }
+  document.getElementById('printTopBtn').onclick=()=>window.print();
 
   // top button
   const topBtn=document.getElementById('toTop');

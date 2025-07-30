@@ -20,7 +20,22 @@
 
 <body>
 <a href="#main" class="skip-link">Aller au contenu principal</a>
-<div id="period-progress"></div>
+<nav id="main-nav">
+  <div class="nav-left">
+    <label for="weekSelect">Semaine</label>
+    <select id="weekSelect">
+      <option value="#phase1">1</option>
+      <option value="#phase2">2</option>
+      <option value="#phase3">3</option>
+      <option value="#phase4">4</option>
+    </select>
+  </div>
+  <div class="nav-right">
+    <a href="#" id="loginLink">Connexion</a>
+    <a href="#" id="signupLink">Inscription</a>
+    <button id="printTopBtn">Imprimer</button>
+  </div>
+</nav>
 
 <button id="toTop"   class="action-btn" aria-label="Revenir en haut">
   <svg viewBox="0 0 24 24"><path d="M12 4l-7 8h4v8h6v-8h4z"/></svg>Haut
@@ -146,7 +161,7 @@ Départ centre. Sprint 5 m vers la droite → 10 m vers la gauche → 5 m retour
 </details>
 
 <!-- ============================== PHASE 1 ============================== -->
-<h2>Phase 1 — Réactivation &amp; Adaptation <span class="muted">(3 séances) — 21 → 27 juillet 2025)</span></h2>
+<h2 id="phase1">Phase 1 — Réactivation &amp; Adaptation <span class="muted">(3 séances) — 21 → 27 juillet 2025)</span></h2>
 
 <div class="table-wrap"><div class="table-scroll">
   <table class="table--has-check">
@@ -210,7 +225,7 @@ Départ centre. Sprint 5 m vers la droite → 10 m vers la gauche → 5 m retour
 </div></div>
 
 <!-- ============================== PHASE 2 ============================== -->
-<h2>Phase 2 — Développement Fondamental <span class="muted">(4 séances) — 28 juillet → 3 août 2025)</span></h2>
+<h2 id="phase2">Phase 2 — Développement Fondamental <span class="muted">(4 séances) — 28 juillet → 3 août 2025)</span></h2>
 
 <div class="table-wrap"><div class="table-scroll">
   <table class="table--has-check">
@@ -290,7 +305,7 @@ Départ centre. Sprint 5 m vers la droite → 10 m vers la gauche → 5 m retour
 </div></div>
 
 <!-- ============================== PHASE 3 ============================== -->
-<h2>Phase 3 — Spécification &amp; Intensification <span class="muted">(4–5 séances) — 4 → 10 août 2025)</span></h2>
+<h2 id="phase3">Phase 3 — Spécification &amp; Intensification <span class="muted">(4–5 séances) — 4 → 10 août 2025)</span></h2>
 
 <div class="table-wrap"><div class="table-scroll">
   <table class="table--has-check">
@@ -379,7 +394,7 @@ Départ centre. Sprint 5 m vers la droite → 10 m vers la gauche → 5 m retour
 </div></div>
 
 <!-- ============================== PHASE 4 ============================== -->
-<h2>Phase 4 — Affûtage &amp; Pré‑compétition <span class="muted">(3–4 séances) — 11 → 17 août 2025)</span></h2>
+<h2 id="phase4">Phase 4 — Affûtage &amp; Pré‑compétition <span class="muted">(3–4 séances) — 11 → 17 août 2025)</span></h2>
 
 <div class="table-wrap"><div class="table-scroll">
   <table class="table--has-check">

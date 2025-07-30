@@ -13,15 +13,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="manifest.json">
-
-<style>
-/* ---- (toutes tes règles CSS déjà ok, inchangées) ---- */
-:root{--ink:#2c3e50;--line:#bdc3c7;--shade:#ecf0f1;--muted:#7f8c8d;--bg:#fff;--link:#0b5cad;--container:980px}
-/* … garde tout le reste sans rien dupliquer … */
-.tip{border-left:4px solid var(--ink);background:#f8fbff;padding:12px;margin:18px 0}
-@media (prefers-color-scheme:dark){.tip{background:#24313f;border-left-color:#3fa3ff}}
-/* ---- fin CSS ---- */
-</style>
+<link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
@@ -43,35 +35,6 @@
 
 </div><!-- /container -->
 
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
-  /* cases à cocher persistantes */
-  document.querySelectorAll('input[type=checkbox]').forEach(chk=>{
-    const dateCell=chk.closest('tr')?.querySelector('.jour');
-    if(!dateCell) return;
-    const key='chk-'+dateCell.textContent.trim();
-    chk.checked=localStorage.getItem(key)==='1';
-    chk.setAttribute('aria-checked',chk.checked);
-    chk.addEventListener('change',()=>{localStorage.setItem(key,chk.checked?'1':'0');chk.setAttribute('aria-checked',chk.checked);});
-  });
-
-  /* barre de progression */
-  const bar=document.getElementById('period-progress');
-  const pct=Math.min(100,Math.max(0,(Date.now()-new Date('2025-07-21'))/(new Date('2025-08-17')-new Date('2025-07-21'))*100));
-  bar.style.setProperty('--pct',pct);bar.title=`Progression : ${pct.toFixed(0)} %`;
-
-  /* bouton haut de page */
-  const topBtn=document.getElementById('toTop');
-  const toggle=()=>window.scrollY>600?topBtn.classList.add('show'):topBtn.classList.remove('show');
-  window.addEventListener('scroll',toggle);toggle();
-  topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
-
-  /* print */
-  document.getElementById('printBtn').onclick=()=>window.print();
-});
-
-/* PWA (facultatif) */
-if('serviceWorker'in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}
-</script>
+<script src="script2.js"></script>
 </body>
 </html>

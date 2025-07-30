@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Programme Individuel de Reprise Football – 21 juillet → 17 août 2025</title>
+
+<meta name="description" content="Plan individuel de reprise foot (21 juil – 17 août 2025) : endurance, vitesse, prévention périostite…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Programme Reprise Football – Seniors">
+<meta property="og:description" content="Endurance, force, vitesse, agilité : télécharge le plan complet.">
+<meta property="og:image" content="https://exemple.com/img/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="manifest.json">
+
+<style>
+/* ---- (toutes tes règles CSS déjà ok, inchangées) ---- */
+:root{--ink:#2c3e50;--line:#bdc3c7;--shade:#ecf0f1;--muted:#7f8c8d;--bg:#fff;--link:#0b5cad;--container:980px}
+/* … garde tout le reste sans rien dupliquer … */
+.tip{border-left:4px solid var(--ink);background:#f8fbff;padding:12px;margin:18px 0}
+@media (prefers-color-scheme:dark){.tip{background:#24313f;border-left-color:#3fa3ff}}
+/* ---- fin CSS ---- */
+</style>
+</head>
+
+<body>
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+<div id="period-progress"></div>
+
+<button id="toTop"   class="action-btn" aria-label="Revenir en haut">
+  <svg viewBox="0 0 24 24"><path d="M12 4l-7 8h4v8h6v-8h4z"/></svg>Haut
+</button>
+<button id="printBtn" class="action-btn" aria-label="Imprimer la page">
+  <svg viewBox="0 0 24 24"><path d="M19 8H5a2 2 0 0 0-2 2v6h4v4h10v-4h4v-6a2 2 0 0 0-2-2zm-3 12H8v-5h8v5zm3-9H5V10h14v1zM6 2h12v4H6z"/></svg>Imprimer
+</button>
+
+<div class="container" id="main">
+
+<!-- 🔻 COLLE ICI TON PROGRAMME COMPLET  🔻
+     (échelle RPE, BAP, phases 1‑4, tableaux, conseils, etc.) -->
+     
+
+</div><!-- /container -->
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  /* cases à cocher persistantes */
+  document.querySelectorAll('input[type=checkbox]').forEach(chk=>{
+    const dateCell=chk.closest('tr')?.querySelector('.jour');
+    if(!dateCell) return;
+    const key='chk-'+dateCell.textContent.trim();
+    chk.checked=localStorage.getItem(key)==='1';
+    chk.setAttribute('aria-checked',chk.checked);
+    chk.addEventListener('change',()=>{localStorage.setItem(key,chk.checked?'1':'0');chk.setAttribute('aria-checked',chk.checked);});
+  });
+
+  /* barre de progression */
+  const bar=document.getElementById('period-progress');
+  const pct=Math.min(100,Math.max(0,(Date.now()-new Date('2025-07-21'))/(new Date('2025-08-17')-new Date('2025-07-21'))*100));
+  bar.style.setProperty('--pct',pct);bar.title=`Progression : ${pct.toFixed(0)} %`;
+
+  /* bouton haut de page */
+  const topBtn=document.getElementById('toTop');
+  const toggle=()=>window.scrollY>600?topBtn.classList.add('show'):topBtn.classList.remove('show');
+  window.addEventListener('scroll',toggle);toggle();
+  topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+
+  /* print */
+  document.getElementById('printBtn').onclick=()=>window.print();
+});
+
+/* PWA (facultatif) */
+if('serviceWorker'in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}
+</script>
+</body>
+</html>

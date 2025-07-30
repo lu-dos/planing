@@ -18,6 +18,7 @@ body{
   color:#111;
   line-height:1.6;
   background:var(--bg);
+  padding-top:56px;
 }
 .container{
   max-width:var(--container);
@@ -47,13 +48,16 @@ a{color:var(--link)}
 .tip{border-left:4px solid var(--ink);background:#f8fbff;padding:12px;margin:18px 0}
 @media (prefers-color-scheme:dark){.tip{background:#24313f;border-left-color:#3fa3ff}}
 
-/* Progress bar */
-#period-progress{
-  position:fixed;top:0;left:0;height:4px;width:100%;background:var(--shade);
+/* Navigation */
+#main-nav{
+  position:fixed;top:0;left:0;right:0;height:44px;display:flex;
+  align-items:center;justify-content:space-between;background:var(--surface);
+  border-bottom:1px solid var(--line);padding:0 16px;z-index:1000;
 }
-#period-progress::after{
-  content:"";display:block;height:100%;background:var(--link);
-  width:calc(var(--pct,0) * 1%);
+#main-nav select{margin-left:8px}
+#main-nav .nav-right a,#main-nav .nav-right button{
+  margin-left:16px;background:none;border:none;color:var(--ink);
+  font-size:.95rem;cursor:pointer;
 }
 
 /* Action buttons */

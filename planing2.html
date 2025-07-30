@@ -31,8 +31,10 @@
     </select>
   </div>
   <div class="nav-right">
+    <span id="userDisplay" class="user"></span>
     <a href="#" id="loginLink">Connexion</a>
     <a href="#" id="signupLink">Inscription</a>
+    <a href="#" id="logoutLink" style="display:none">Déconnexion</a>
     <button id="printTopBtn">Imprimer</button>
   </div>
 </nav>
@@ -511,6 +513,32 @@ Départ centre. Sprint 5 m vers la droite → 10 m vers la gauche → 5 m retour
 </div>
 
 </div><!-- /container -->
+
+<dialog id="loginModal">
+  <form id="loginForm" method="dialog">
+    <h3>Connexion</h3>
+    <label>Prénom<input type="text" id="loginPrenom" required></label>
+    <label>Nom<input type="text" id="loginNom" required></label>
+    <label>Mot de passe<input type="password" id="loginPassword" required></label>
+    <menu>
+      <button type="submit">OK</button>
+      <button type="button" id="loginCancel">Annuler</button>
+    </menu>
+  </form>
+</dialog>
+
+<dialog id="signupModal">
+  <form id="signupForm" method="dialog">
+    <h3>Inscription</h3>
+    <label>Prénom<input type="text" id="signupPrenom" required></label>
+    <label>Nom<input type="text" id="signupNom" required></label>
+    <label>Mot de passe<input type="password" id="signupPassword" required></label>
+    <menu>
+      <button type="submit">Créer</button>
+      <button type="button" id="signupCancel">Annuler</button>
+    </menu>
+  </form>
+</dialog>
 
 <script src="script2.js" defer></script>
 </body>

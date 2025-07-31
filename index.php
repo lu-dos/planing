@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["user_id"])) { header("Location: login.php"); exit; }
+$loggedIn = isset($_SESSION['user_id']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -35,7 +35,11 @@ if(!isset($_SESSION["user_id"])) { header("Location: login.php"); exit; }
     </select>
   </div>
   <div class="nav-right">
-    <a href="logout.php" id="logoutLink">Déconnexion</a>
+    <?php if($loggedIn): ?>
+      <a href="logout.php" id="logoutLink">Déconnexion</a>
+    <?php else: ?>
+      <a href="login.php" id="loginLink">Connexion</a>
+    <?php endif; ?>
     <button id="printTopBtn">Imprimer</button>
   </div>
 </nav>
@@ -45,6 +49,10 @@ if(!isset($_SESSION["user_id"])) { header("Location: login.php"); exit; }
 </button>
 
 <div class="container" id="main">
+
+<?php if(!$loggedIn): ?>
+<p class="tip small">Connecte-toi pour sauvegarder ta progression.</p>
+<?php endif; ?>
 
 <!-- 📡 COLLE ICI TON PROGRAMME COMPLET  📡
      (échelle RPE, BAP, phases 1‑4, tableaux, conseils, etc.) -->
@@ -512,7 +520,7 @@ Départ centre. Sprint 5 m vers la droite → 10 m vers la gauche → 5 m retour
 
 </div><!-- /container -->
 
-<script>window.currentUserId=<?php echo json_encode($_SESSION['user_id']); ?>;</script>
+<script>window.currentUserId=<?php echo json_encode($_SESSION['user_id'] ?? null); ?>;</script>
 <script src="script2.js" defer></script>
 </body>
 </html>

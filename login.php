@@ -6,7 +6,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $first = $_POST['firstname'] ?? '';
     $last  = $_POST['lastname'] ?? '';
     $password = $_POST['password'] ?? '';
-    $stmt = $pdo->prepare('SELECT id FROM players WHERE first=? AND last=? AND pw=?');
+    // Les champs dans la base utilisent les noms complets
+    // correspondant au formulaire : firstname, lastname et password.
+    // On adapte donc la requête en conséquence pour éviter l'erreur
+    // "Unknown column 'first'" lors de l'exécution.
+    $stmt = $pdo->prepare('SELECT id FROM players WHERE firstname=? AND lastname=? AND password=?');
     $stmt->execute([$first, $last, $password]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($user) {

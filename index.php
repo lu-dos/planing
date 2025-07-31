@@ -39,6 +39,7 @@ $loggedIn = isset($_SESSION['user_id']);
       <a href="logout.php" id="logoutLink">Déconnexion</a>
     <?php else: ?>
       <a href="login.php" id="loginLink">Connexion</a>
+      <a href="signup.php" id="signupLink">Inscription</a>
     <?php endif; ?>
     <button id="printTopBtn">Imprimer</button>
   </div>
